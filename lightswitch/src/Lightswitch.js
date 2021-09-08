@@ -1,16 +1,26 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
+// import React, { useState } from 'react';
 import './Lightswitch.css';
 
-const Lightswitch = (props) =>
-{
-    return (<div className={wallClass}>
+class Lightswitch extends Component {
+  state = { on: true };
+  render() {
+    let wallClass = "wall off";
+    if (this.state.on) {
+      wallClass = "wall on";
+    }
+    return (
+      <div className={wallClass}>
         <div className="switch-plate">
-            <div className="screw" />
-            <div className="switch">
-                <div className="switch-handle" />
-            </div>
-            <div className="screw" />
+          <div className="screw" />
+          <div className="switch">
+            <div className="switch-handle" />
+          </div>
+          <div className="screw" />
         </div>
-    </div>);
+      </div>
+    );
+  }
 }
+
 export default Lightswitch;
