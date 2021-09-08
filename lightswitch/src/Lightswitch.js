@@ -3,7 +3,14 @@ import React, { Component } from 'react';
 import './Lightswitch.css';
 
 class Lightswitch extends Component {
-  state = { on: true };
+    state = { on: true };
+
+    toggle = () =>
+    {
+        let isOn = this.state.on;
+        this.setState({ on: !isOn });
+ 
+    }
   render() {
     let wallClass = "wall off";
     if (this.state.on) {
@@ -13,7 +20,7 @@ class Lightswitch extends Component {
       <div className={wallClass}>
         <div className="switch-plate">
           <div className="screw" />
-          <div className="switch">
+          <div className="switch" onClick={this.toggle}>
             <div className="switch-handle" />
           </div>
           <div className="screw" />
